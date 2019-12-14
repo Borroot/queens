@@ -55,8 +55,8 @@ bool valid_ver(vector<vector<int>> &board, Pos q){
 
 bool valid_dia(vector<vector<int>> &board, Pos q){
 	const int N = board.size();
-	int c = q.x + q.y;
 
+	int c = q.x + q.y;
 	for(int y = 0; y < N; y++){
 		for(int x = 0; x < N; x++){
 			if(x + y == c && x != q.x && y != q.y && board[y][x] == Q){
@@ -94,7 +94,7 @@ void solve(vector<vector<int>> &board, Pos pos, int placed){
 	// try with queen
 	board[pos.y][pos.x] = Q;
 	if(valid_board(board, pos))	
-		solve(board, next_pos(pos, N), placed+1);
+		solve(board, {0,pos.y+1}, placed+1);
 	// try without queen
 	board[pos.y][pos.x] = E;
 	solve(board, next_pos(pos, N), placed);

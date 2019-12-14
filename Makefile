@@ -1,5 +1,7 @@
-make: queens.cpp
-	g++ -o queens queens.cpp
+all: queens
+
+queens: queens.cpp
+	$(CXX) -o $@ $<
 
 clean:
 	rm queens
